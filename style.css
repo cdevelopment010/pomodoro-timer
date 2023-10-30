@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: grid; 
+    place-items: center;
+}
+
+.data-percent {
+    display: grid; 
+    place-items: center;
+    z-index: 10; 
+    position: relative;
+
+    height: 200px; 
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+
+    
+    --angle: 180deg;
+    --color: blue;
+
+    background: conic-gradient(var(--color) 0, 
+                                var(--color) var(--angle),
+                                white var(--angle),
+                                white 360deg );
+
+}
+
+
+.data-percent::after {
+    z-index: -1;
+    position: absolute;
+    content: '';
+    height: 90%;
+    width: 90%;
+    top: 5%; 
+    left: 5%; 
+    background-color: white;
+    border-radius: 50%;
+}
+
+#timer {
+    font-size: 2rem;
+}
