@@ -47,4 +47,9 @@ body {
 
 #timer {
     font-size: 2rem;
+    align-self: flex-end;
+}
+
+#mode {
+    align-self: flex-start;
 }
