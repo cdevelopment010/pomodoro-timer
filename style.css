@@ -9,7 +9,10 @@ body {
     min-height: 100vh;
     display: grid; 
     place-items: center;
+    gap: 2rem;
 }
+
+.d-none {display: none}
 
 .data-percent {
     display: grid; 
@@ -17,6 +20,7 @@ body {
     z-index: 10; 
     position: relative;
 
+    align-self: flex-end;
     height: 200px; 
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -43,6 +47,10 @@ body {
     left: 5%; 
     background-color: white;
     border-radius: 50%;
+}
+
+.btn-group {
+    align-self: flex-start;
 }
 
 #timer {

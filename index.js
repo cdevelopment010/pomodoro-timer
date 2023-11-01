@@ -1,8 +1,12 @@
-const workTime = 10*1000;
-const restTime = 10*1000;
-let numberWorkIntervals = 2;
+const workTime = 1*10*1000;
+const restTime = 1*10*1000;
+const intervalCount = 2;
+let numberWorkIntervals = intervalCount;
 let currentMode = "Work";
 let time = workTime;
+
+
+let interval;
 
 const timer = document.getElementById('timer');
 const dataPercent = document.querySelectorAll('.data-percent');
@@ -12,8 +16,9 @@ updateCountdown(time);
 countdown(time);
 
 function countdown(pTime){
-    let interval = setInterval(() => {
+    interval = setInterval(() => {
         pTime -= 1000;
+        // time = pTime;
         if (pTime <= 0) {
             clearInterval(interval);
             numberWorkIntervals = currentMode == "Work" ? numberWorkIntervals - 1 : numberWorkIntervals;
@@ -51,7 +56,7 @@ function updateCountdown(pTime) {
         // timer.innerText = "00:00";
     } else {
         let color = currentMode == "Work" ? "blue" : "red";
-        let angle = (pTime / time * 360 ) + 'deg';
+        let angle = (pTime / (currentMode == "Work" ? workTime : restTime) * 360 ) + 'deg';
         dataPercent[0].style.setProperty('--angle', angle);
         dataPercent[0].style.setProperty('--color', color);
 
@@ -60,4 +65,29 @@ function updateCountdown(pTime) {
         timer.innerText = minutes + ":" + seconds;
         modeEl.innerText = currentMode;
     }
+}
+
+function play() {
+    countdown(time);
+    document.getElementsByClassName('pause')[0].classList.remove('d-none');
+    document.getElementsByClassName('play')[0].classList.add('d-none');
+}
+
+function pause() {
+    clearInterval(interval);
+    console.log(numberWorkIntervals);
+    let [minutes, seconds] = timer.innerText.split(":");
+    time = ((minutes * 60 ) + seconds * 1) * 1000;
+    document.getElementsByClassName('play')[0].classList.remove('d-none');
+    document.getElementsByClassName('pause')[0].classList.add('d-none');
+}
+
+function reset() {
+    currentMode = "Work";
+    numberWorkIntervals = intervalCount;
+    time = workTime;
+    clearInterval(interval);
+    updateCountdown(time);
+    countdown(time);
+
 }
