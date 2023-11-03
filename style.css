@@ -61,3 +61,9 @@ body {
 #mode {
     align-self: flex-start;
 }
+
+.btn-group  > button {
+    outline: none; 
+    background: none; 
+    border: none; 
+}
