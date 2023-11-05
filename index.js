@@ -68,6 +68,7 @@ function updateCountdown(pTime) {
 }
 
 function play() {
+    clearInterval(interval);
     countdown(time);
     document.getElementsByClassName('pause')[0].classList.remove('d-none');
     document.getElementsByClassName('play')[0].classList.add('d-none');
@@ -86,6 +87,11 @@ function reset() {
     currentMode = "Work";
     numberWorkIntervals = intervalCount;
     time = workTime;
+
+    
+    document.getElementsByClassName('pause')[0].classList.remove('d-none');
+    document.getElementsByClassName('play')[0].classList.add('d-none');
+
     clearInterval(interval);
     updateCountdown(time);
     countdown(time);
