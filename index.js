@@ -63,7 +63,7 @@ function updateCountdown(pTime) {
         let minutes = Math.floor(pTime / 60 / 1000).toString().padStart(2, "0"); 
         let seconds = ((pTime / 1000) % 60).toString().padStart(2,"0")
         timer.innerText = minutes + ":" + seconds;
-        modeEl.innerText = currentMode;
+        modeEl.innerText = currentMode + ` ${numberWorkIntervals}`;
     }
 }
 
