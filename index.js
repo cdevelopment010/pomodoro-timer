@@ -123,7 +123,7 @@ function applyNewTimes() {
 
 function closeSettings() {
     let settingsList = document.querySelectorAll('.settings-list')[0]; 
-    settingsList.style.right = "-100%";
+    settingsList.style.right = "-20vw";
 }
 function openSettings() {
     let settingsList = document.querySelectorAll('.settings-list')[0]; 

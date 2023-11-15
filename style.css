@@ -95,12 +95,12 @@ body {
     width: 20vw; 
     position: absolute; 
     top: 0; 
-    right: -100%; 
+    right: -20vw; 
     padding: 20px; 
     z-index: 20;
     background-color: white;
     box-shadow: 0 4px 4px rgba(0,0,0,0.5);
-    transition: 0.2s right;
+    transition: 0.5s right;
 }
 
 .settings::after {
@@ -111,7 +111,7 @@ body {
     height: 2px; 
     width: 0%; 
     background: black; 
-    transition: 1s width;
+    transition: 0.5s width;
 }
 
 .settings:hover::after {
