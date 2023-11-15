@@ -120,3 +120,12 @@ function applyNewTimes() {
     countdown(time);
 
 }
+
+function closeSettings() {
+    let settingsList = document.querySelectorAll('.settings-list')[0]; 
+    settingsList.style.right = "-100%";
+}
+function openSettings() {
+    let settingsList = document.querySelectorAll('.settings-list')[0]; 
+    settingsList.style.right = "0";
+}

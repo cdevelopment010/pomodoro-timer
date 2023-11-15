@@ -7,6 +7,8 @@
 
 body {
     min-height: 100vh;
+    width: 100vw; 
+    overflow: hidden;
     display: grid; 
     place-items: center;
     gap: 2rem;
@@ -76,9 +78,29 @@ body {
 }
 
 /* USER INPUTS */
+
 .settings {
-    position: relative;
+    text-align: right;
+    position: absolute;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    right: 2rem;
+    top: 1rem;
     cursor: pointer;
+    z-index: 20;
+}
+
+.settings-list {
+    height: 100vh; 
+    width: 20vw; 
+    position: absolute; 
+    top: 0; 
+    right: -100%; 
+    padding: 20px; 
+    z-index: 20;
+    background-color: white;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.5);
+    transition: 0.2s right;
 }
 
 .settings::after {
@@ -89,9 +111,18 @@ body {
     height: 2px; 
     width: 0%; 
     background: black; 
-    transition: 0.2s width;
+    transition: 1s width;
 }
 
 .settings:hover::after {
     width: 100%;
+}
+
+
+.settings-list .close {
+    position: absolute; 
+    cursor: pointer;
+    color: grey; 
+    top: 1rem; 
+    right: 1rem; 
 }
