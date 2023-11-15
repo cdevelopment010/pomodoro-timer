@@ -11,15 +11,54 @@
 </head>
 <body>
 
-    <div class="data-percent">
-        <div id="timer">00:00</div>
-        <div id="mode">Work</div>
+    <div class="d-flex flex-columns justify-content-center align-items-center gap-10">
+        <div class="settings" onclick="showSettings()">
+            Settings
+            <i class="fa-solid fa-gear"></i>
+        </div>
+        <div class="settings-list">
+            <h3>Work</h3>
+            <div class="d-flex flex-columns gap-10">
+                <label>
+                    Minutes
+                    <input type="number" id="work-time-minutes" min="0" step="1" value="25">
+                </label>
+                <label>
+                    Seconds
+                    <input type="number" id="work-time-seconds" min="0" step="1" value="0">
+                </label>
+                <label>
+                    Intervals
+                    <input type="number" id="work-time-intervals" min="0" step="1" value="4">
+                </label>
+            </div>
+            <h3 class="mt-3">Rest</h3>
+            <div class="d-flex flex-columns gap-10">
+                <label>
+                    Minutes
+                    <input type="number" id="rest-time-minutes" min="0" step="1" value="5">
+                </label>
+                <label>
+                    Seconds
+                    <input type="number" id="rest-time-seconds" min="0" step="1" value="0">
+                </label>
+            </div>
+            <button onclick="applyNewTimes()">Apply</button>
+        </div>
+    
+        <div class="">
+            <div class="data-percent">
+                <div id="timer">00:00</div>
+                <div id="mode">Work</div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="play d-none" onclick="play()"><i class="fa-solid fa-play fa-3x"></i></button>
+            <button class="pause" onclick="pause()"><i class="fa-solid fa-pause fa-3x"></i></button>
+            <button class="reset" onclick="reset()"><i class="fa-solid fa-rotate-left fa-3x"></i></button>
+        </div>
     </div>
-    <div class="btn-group">
-        <button class="play d-none" onclick="play()"><i class="fa-solid fa-play fa-3x"></i></button>
-        <button class="pause" onclick="pause()"><i class="fa-solid fa-pause fa-3x"></i></button>
-        <button class="reset" onclick="reset()"><i class="fa-solid fa-rotate-left fa-3x"></i></button>
-    </div>
+
 
 
     <script src="index.js"></script>

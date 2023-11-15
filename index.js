@@ -1,6 +1,6 @@
-const workTime = 25*60*1000;
-const restTime = 5*60*1000;
-const intervalCount = 4;
+let workTime = 25*60*1000;
+let restTime = 5*60*1000;
+let intervalCount = 4;
 let numberWorkIntervals = intervalCount;
 let currentMode = "Work";
 let time = workTime;
@@ -91,6 +91,29 @@ function reset() {
     
     document.getElementsByClassName('pause')[0].classList.remove('d-none');
     document.getElementsByClassName('play')[0].classList.add('d-none');
+
+    clearInterval(interval);
+    updateCountdown(time);
+    countdown(time);
+
+}
+
+function applyNewTimes() {
+    let workTimeInputMinutes = document.getElementById('work-time-minutes').value; 
+    let workTimeInputSeconds = document.getElementById('work-time-seconds').value; 
+    let workIntervalInputs = document.getElementById('work-time-intervals').value; 
+    let restTimeInputMinutes = document.getElementById('rest-time-minutes').value; 
+    let restTimeInputSeconds = document.getElementById('rest-time-seconds').value; 
+
+    workTime = workTimeInputMinutes*60*1000 + workTimeInputSeconds*1000;
+    restTime = restTimeInputMinutes*60*1000 + restTimeInputSeconds*1000;
+    intervalCount = workIntervalInputs;
+
+    numberWorkIntervals = intervalCount;
+    currentMode = "Work";
+    time = workTime;
+
+    console.log(workTime, restTime, intervalCount)
 
     clearInterval(interval);
     updateCountdown(time);
